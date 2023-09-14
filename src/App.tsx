@@ -1,7 +1,9 @@
 import "./App.css";
+import "./Components/Navbar";
+import Navbar from "./Components/Navbar";
 
 function App() {
-  return <h1>AdvancedCTRL, você no controle</h1>;
+  return <Navbar />;
 }
 
 export default App;
