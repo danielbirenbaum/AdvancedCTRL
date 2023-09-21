@@ -4,7 +4,7 @@ function NavBar() {
     return <div id="navbar">
         <div>
             <div id="navbar-title">
-                <img src="assets/images/logo.png"/>
+                <img src="assets/icons/logo.svg"/>
                 
                 <div>
                     <p id="navbar-title-heading"><b>AdvancedCTRL</b></p>
