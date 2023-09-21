@@ -102,6 +102,7 @@ button {
 }
 
 .navbar-option {
+    width: 100%;
     padding: 10px 0;
     border-radius: 5px;
     
