@@ -25,8 +25,8 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js'),
     },
 
-    width: 1100,
-    height: 700,
+    width: 1400,
+    height: 800,
     resizable: false,
     autoHideMenuBar: true,
     titleBarStyle: 'hidden'

@@ -6,7 +6,7 @@
     --text: #F2E3D5;
 
     --font: "Poppins", "Segoe UI", sans-serif;
-    --font-size: 1.15rem;
+    --font-size: 1.18rem;
 
     --navbar-width: 300px;
 }
@@ -117,7 +117,7 @@ button {
     display: flex;
     align-items: center;
 
-    margin: 8px 0;
+    margin: 12px 0;
     padding: 10px 30px;
 
     background: none;
@@ -137,6 +137,10 @@ button {
 .navbar-option.selected img {
     opacity: .9;
 }
+.navbar-option:last-of-type {
+    position: absolute;
+    bottom: 20px;
+}
 
 /* Others */
 .separator {
@@ -144,7 +148,7 @@ button {
     width: 90%;
 }
 #move-bar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
