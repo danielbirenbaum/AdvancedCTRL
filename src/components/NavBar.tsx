@@ -14,7 +14,7 @@ function NavBar() {
 
             <hr className="separator"/>
 
-            <div>
+            <div id="navbar-options">
                 <NavBarOption iconPath="assets/icons/home.svg">Página Inicial</NavBarOption>
                 <NavBarOption iconPath="assets/icons/settings.svg">Configurações</NavBarOption>
                 <NavBarOption iconPath="assets/icons/cpu.svg">CPU</NavBarOption>
