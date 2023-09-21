@@ -2,7 +2,10 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 
 function App() {
-  return <NavBar></NavBar>
+  return <>
+    <div id="move-bar"></div>
+    <NavBar></NavBar>
+  </>
 }
 
 export default App;
