@@ -6,9 +6,9 @@
     --text: #F2E3D5;
 
     --font: "Poppins", "Segoe UI", sans-serif;
-    --font-size: 1.18rem;
+    --font-size: 1.2rem;
 
-    --navbar-width: 300px;
+    --navbar-width: 320px;
 }
 body {
     height: 100%;
@@ -88,7 +88,7 @@ button {
 #navbar-options {
     display: flex;
     flex-direction: column;
-    
+
     position: relative;
     height: 85%;
 }
@@ -130,11 +130,11 @@ button {
     background-color: rgba(255, 255, 255, .1);
 }
 .navbar-option img {
-    width: 25px;
-    height: 25px;
+    width: 27px;
+    height: 27px;
     opacity: .7;
 
-    margin-right: 20px;
+    margin-right: 25px;
     object-fit: contain;
 }
 .navbar-option.selected img {
