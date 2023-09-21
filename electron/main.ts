@@ -26,6 +26,7 @@ function createWindow() {
     },
     autoHideMenuBar: true
   })
+  win.setMenu(null);
 
   // Test active push message to Renderer-process.
   win.webContents.on('did-finish-load', () => {

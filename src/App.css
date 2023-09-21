@@ -1,0 +1,136 @@
+/* General */
+:root {
+    --dark: #001219;
+    --medium: #013541;
+    --light: #2C7688;
+    --text: #F2E3D5;
+
+    --font: "Poppins", "Segoe UI", sans-serif;
+}
+body {
+    height: 100%;
+    margin: 0;
+    font-size: 1.05em;
+
+    color: var(--text);
+    font-family: var(--font);
+
+    background-color: var(--dark);
+    background-image: linear-gradient(var(--medium), var(--dark));
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+button {
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 1em;
+}
+
+
+/* Typography */
+@font-face {
+    font-family: "Poppins";
+    font-weight: 300;
+    src: url("assets/fonts/Poppins-Light.ttf");
+}
+@font-face {
+    font-family: "Poppins";
+    font-weight: 400;
+    src: url("assets/fonts/Poppins-Regular.ttf");
+}
+@font-face {
+    font-family: "Poppins";
+    font-family: 500;
+    src: url("assets/fonts/Poppins-Medium.ttf");
+}
+@font-face {
+    font-family: "Poppins";
+    font-weight: 600;
+    src: url("assets/fonts/Poppins-SemiBold.ttf");
+}
+@font-face {
+    font-family: "Poppins";
+    font-weight: 700;
+    src: url("assets/fonts/Poppins-Bold.ttf");
+}
+*::selection {
+    background: none;
+}
+*:hover {
+    cursor: default;
+}
+
+
+/* NavBar */
+#navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 10px 0;
+    box-sizing: border-box;
+
+    width: 300px;
+    height: 100%;
+
+    background-color: var(--dark);
+}
+#navbar-title {
+    padding: 10px 0;
+    
+    display: flex;
+    align-items: center;
+    
+    padding: 10px 30px;
+    margin-bottom: -10px;
+}
+#navbar-title img {
+    height: 40px;
+    margin-right: 20px;
+    transform: translateY(-5px);
+}
+#navbar-title-heading {
+    margin-bottom: -20px;
+}
+#navbar-title-version {
+    opacity: .8;
+}
+
+.navbar-option {
+    padding: 10px 0;
+    border-radius: 5px;
+    
+    display: flex;
+    align-items: center;
+    
+    margin: 10px;
+    padding: 10px 30px;
+
+    background: none;
+    border: none;
+}
+.navbar-option:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
+.navbar-option img {
+    width: 25px;
+    height: 25px;
+    opacity: .7;
+
+    margin-right: 20px;
+    object-fit: contain;
+}
+.navbar-option.selected img {
+    opacity: .9;
+}
+
+/* Others */
+.separator {
+    opacity: .3;
+    width: 90%;
+}
