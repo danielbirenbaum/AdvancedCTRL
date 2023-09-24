@@ -1,5 +1,5 @@
 function HomepageScreen() {
-    return <h1>Glub é incrível</h1>;
+    return <p>Conteúdo</p>;
 }
 
 export default HomepageScreen;
