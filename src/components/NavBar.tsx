@@ -1,7 +1,11 @@
 import NavBarOption from "./NavBarOption";
+import NavBarScreenOption from "./NavBarScreenOption";
 
-function NavBar() {
-    // Botão de fechar via IPC
+interface NavBarProps {
+    setScreen: (x: number) => void; // Altera o estado da tela atual
+}
+
+function NavBar(props: NavBarProps) {
     function closeApp() {
         window.ipcRenderer.send("quit-app");
     }
@@ -23,50 +27,55 @@ function NavBar() {
                 <hr className="separator" />
 
                 <div id="navbar-options">
-                    <NavBarOption
+                    <NavBarScreenOption
                         iconPath="assets/icons/home.svg"
-                        onClick={() =>
-                            console.log("Página principal clicada com sucesso")
-                        }
+                        screenIndex={0}
+                        setScreen={props.setScreen}
                     >
                         Página Inicial
-                    </NavBarOption>
-                    <NavBarOption
+                    </NavBarScreenOption>
+                    <NavBarScreenOption
                         iconPath="assets/icons/settings.svg"
-                        onClick={() => null}
+                        screenIndex={1}
+                        setScreen={props.setScreen}
                     >
                         Configurações
-                    </NavBarOption>
-                    <NavBarOption
+                    </NavBarScreenOption>
+                    <NavBarScreenOption
                         iconPath="assets/icons/cpu.svg"
-                        onClick={() => null}
+                        screenIndex={2}
+                        setScreen={props.setScreen}
                     >
                         CPU
-                    </NavBarOption>
-                    <NavBarOption
+                    </NavBarScreenOption>
+                    <NavBarScreenOption
                         iconPath="assets/icons/gpu.svg"
-                        onClick={() => null}
+                        screenIndex={3}
+                        setScreen={props.setScreen}
                     >
                         GPU
-                    </NavBarOption>
-                    <NavBarOption
+                    </NavBarScreenOption>
+                    <NavBarScreenOption
                         iconPath="assets/icons/ram.svg"
-                        onClick={() => null}
+                        screenIndex={4}
+                        setScreen={props.setScreen}
                     >
                         RAM
-                    </NavBarOption>
-                    <NavBarOption
+                    </NavBarScreenOption>
+                    <NavBarScreenOption
                         iconPath="assets/icons/hdd.svg"
-                        onClick={() => null}
+                        screenIndex={5}
+                        setScreen={props.setScreen}
                     >
                         Disco Rígido
-                    </NavBarOption>
-                    <NavBarOption
+                    </NavBarScreenOption>
+                    <NavBarScreenOption
                         iconPath="assets/icons/fan.svg"
-                        onClick={() => null}
+                        screenIndex={6}
+                        setScreen={props.setScreen}
                     >
                         Ventoinha
-                    </NavBarOption>
+                    </NavBarScreenOption>
                     <NavBarOption
                         iconPath="assets/icons/power.svg"
                         onClick={() => closeApp()}
