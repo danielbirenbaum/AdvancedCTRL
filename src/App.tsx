@@ -23,7 +23,7 @@ function App() {
             <div id="move-bar"></div>
             <NavBar setScreen={setScreen}></NavBar>
 
-            {React.createElement(screens[screen][2], {})}
+            <div id="screen">{React.createElement(screens[screen][2], {})}</div>
         </>
     );
 }

@@ -163,3 +163,6 @@ button {
     -webkit-user-select: none;
     -webkit-app-region: drag;
 }
+#screen {
+    margin: 80px 20px;
+}
