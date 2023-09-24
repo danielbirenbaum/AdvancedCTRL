@@ -2,8 +2,8 @@
 :root {
     --dark: #001219;
     --medium: #013541;
-    --light: #2C7688;
-    --text: #F2E3D5;
+    --light: #2c7688;
+    --text: #f2e3d5;
 
     --font: "Poppins", "Segoe UI", sans-serif;
     --font-size: 1.2rem;
@@ -31,11 +31,6 @@ button {
     font-family: var(--font);
     font-size: var(--font-size);
 }
-
-h1 {
-    margin-left: 40px;
-}
-
 
 /* Typography */
 @font-face {
@@ -70,7 +65,6 @@ h1 {
     cursor: default;
 }
 
-
 /* NavBar */
 #navbar {
     position: absolute;
@@ -98,30 +92,31 @@ h1 {
 }
 #navbar-title {
     padding: 10px 0;
-    
+
     display: flex;
     align-items: center;
-    
+
     padding: 10px 30px;
     margin-bottom: -10px;
 }
 #navbar-title img {
     height: 40px;
     margin-right: 20px;
-    filter: invert(100%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(80%);
+    filter: invert(100%) sepia(93%) saturate(1352%) hue-rotate(87deg)
+        brightness(80%);
     transform: translateY(-5px);
 }
 #navbar-title-heading {
     margin-bottom: -20px;
 }
 #navbar-title-version {
-    opacity: .8;
+    opacity: 0.8;
 }
 
 .navbar-option {
     width: 100%;
     border-radius: 5px;
-    
+
     display: flex;
     align-items: center;
 
@@ -132,18 +127,18 @@ h1 {
     border: none;
 }
 .navbar-option:hover {
-    background-color: rgba(255, 255, 255, .1);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 .navbar-option img {
     width: 27px;
     height: 27px;
-    opacity: .7;
+    opacity: 0.7;
 
     margin-right: 25px;
     object-fit: contain;
 }
 .navbar-option.selected img {
-    opacity: .9;
+    opacity: 0.9;
 }
 .navbar-option:last-of-type {
     position: absolute;
@@ -152,7 +147,7 @@ h1 {
 
 /* Others */
 .separator {
-    opacity: .3;
+    opacity: 0.3;
     width: 90%;
 }
 #move-bar {
@@ -162,9 +157,9 @@ h1 {
     right: 0;
 
     width: 100%;
-    height: 50px;
-    
+    height: 100px;
+
     z-index: 1000;
     -webkit-user-select: none;
-    -webkit-app-region: drag;;
+    -webkit-app-region: drag;
 }
