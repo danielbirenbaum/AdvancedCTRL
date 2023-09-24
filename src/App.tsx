@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 import NavBar from "./components/NavBar";
@@ -23,7 +23,7 @@ function App() {
             <div id="move-bar"></div>
             <NavBar setScreen={setScreen}></NavBar>
 
-            {screen}
+            {React.createElement(screens[screen][2], {})}
         </>
     );
 }
