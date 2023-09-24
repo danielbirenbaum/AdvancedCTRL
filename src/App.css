@@ -32,6 +32,10 @@ button {
     font-size: var(--font-size);
 }
 
+h1 {
+    margin-left: 40px;
+}
+
 
 /* Typography */
 @font-face {
