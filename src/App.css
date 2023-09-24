@@ -168,7 +168,6 @@ button {
     height: 100px;
 
     z-index: 1000;
-    -webkit-user-select: none;
     -webkit-app-region: drag;
 }
 #screen {
