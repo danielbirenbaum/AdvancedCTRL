@@ -1,7 +1,7 @@
 import NavBarOption from "./NavBarOption";
 
 interface NavBarScreenOptionProps {
-    children: string;
+    children?: string;
     iconPath: string;
     screenIndex: number; // Correspondente ao botão
     setScreen: (x: number) => void; // Altera o estado da tela atual

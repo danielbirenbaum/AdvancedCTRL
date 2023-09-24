@@ -1,3 +1,4 @@
+import { screens } from "../App";
 import NavBarOption from "./NavBarOption";
 import NavBarScreenOption from "./NavBarScreenOption";
 
@@ -27,55 +28,18 @@ function NavBar(props: NavBarProps) {
                 <hr className="separator" />
 
                 <div id="navbar-options">
-                    <NavBarScreenOption
-                        iconPath="assets/icons/home.svg"
-                        screenIndex={0}
-                        setScreen={props.setScreen}
-                    >
-                        Página Inicial
-                    </NavBarScreenOption>
-                    <NavBarScreenOption
-                        iconPath="assets/icons/settings.svg"
-                        screenIndex={1}
-                        setScreen={props.setScreen}
-                    >
-                        Configurações
-                    </NavBarScreenOption>
-                    <NavBarScreenOption
-                        iconPath="assets/icons/cpu.svg"
-                        screenIndex={2}
-                        setScreen={props.setScreen}
-                    >
-                        CPU
-                    </NavBarScreenOption>
-                    <NavBarScreenOption
-                        iconPath="assets/icons/gpu.svg"
-                        screenIndex={3}
-                        setScreen={props.setScreen}
-                    >
-                        GPU
-                    </NavBarScreenOption>
-                    <NavBarScreenOption
-                        iconPath="assets/icons/ram.svg"
-                        screenIndex={4}
-                        setScreen={props.setScreen}
-                    >
-                        RAM
-                    </NavBarScreenOption>
-                    <NavBarScreenOption
-                        iconPath="assets/icons/hdd.svg"
-                        screenIndex={5}
-                        setScreen={props.setScreen}
-                    >
-                        Disco Rígido
-                    </NavBarScreenOption>
-                    <NavBarScreenOption
-                        iconPath="assets/icons/fan.svg"
-                        screenIndex={6}
-                        setScreen={props.setScreen}
-                    >
-                        Ventoinha
-                    </NavBarScreenOption>
+                    {screens.map((s, idx) => {
+                        return (
+                            <NavBarScreenOption
+                                iconPath={"assets/icons/" + s[0]}
+                                screenIndex={idx}
+                                setScreen={props.setScreen}
+                            >
+                                {s[1].toString()}
+                            </NavBarScreenOption>
+                        );
+                    })}
+
                     <NavBarOption
                         iconPath="assets/icons/power.svg"
                         onClick={() => closeApp()}

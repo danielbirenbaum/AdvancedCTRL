@@ -1,5 +1,5 @@
 interface NavBarOptionProps {
-    children: string;
+    children?: string;
     iconPath: string;
     onClick: () => void;
 }
