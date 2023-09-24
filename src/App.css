@@ -134,10 +134,8 @@ button {
     background: none;
     border: none;
 }
-.navbar-option:hover,
-.navbar-option:focus {
+.navbar-option:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    outline: none;
 }
 .navbar-option img {
     width: 27px;
