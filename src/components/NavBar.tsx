@@ -7,10 +7,6 @@ interface NavBarProps {
 }
 
 function NavBar(props: NavBarProps) {
-    function closeApp() {
-        window.ipcRenderer.send("quit-app");
-    }
-
     return (
         <div id="navbar">
             <div>
@@ -42,7 +38,7 @@ function NavBar(props: NavBarProps) {
 
                     <NavBarOption
                         iconPath="assets/icons/power.svg"
-                        onClick={() => closeApp()}
+                        onClick={() => window.ipcRenderer.send("quit-app")}
                     >
                         Sair
                     </NavBarOption>
