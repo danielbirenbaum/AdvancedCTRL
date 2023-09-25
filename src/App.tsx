@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import NavBar from "./components/NavBar";
-import { screens } from "./components/screens/ScreenInfo";
+import { screens } from "./helpers/ScreenInfo";
 
 function App() {
     const [screenIndex, setScreenIndex] = useState(0);

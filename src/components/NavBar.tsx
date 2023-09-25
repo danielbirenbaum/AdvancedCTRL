@@ -1,6 +1,6 @@
 import NavBarOption from "./NavBarOption";
 import NavBarScreenOption from "./NavBarScreenOption";
-import { screens } from "./screens/ScreenInfo";
+import { screens } from "../helpers/ScreenInfo";
 
 interface NavBarProps {
     setScreenIndex: (x: number) => void; // Altera o estado do índice da tela atual

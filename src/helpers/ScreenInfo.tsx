@@ -1,4 +1,4 @@
-import HomepageScreen from "./HomepageScreen";
+import HomepageScreen from "../components/screens/HomepageScreen";
 
 interface Screen {
     title: string;
