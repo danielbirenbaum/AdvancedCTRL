@@ -29,7 +29,7 @@ function NavBar(props: NavBarProps) {
                             <NavBarScreenOption
                                 key={idx}
                                 iconPath={s.iconPath}
-                                screenIndex={idx}
+                                screenClickIndex={idx}
                                 setScreenIndex={props.setScreenIndex}
                             >
                                 {s.title}
