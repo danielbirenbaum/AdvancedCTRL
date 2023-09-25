@@ -1,17 +1,21 @@
+import { useContext } from "react";
 import NavBarOption from "./NavBarOption";
+import { AppContext } from "../helpers/Context";
 
 interface NavBarScreenOptionProps {
     children?: string;
     iconPath: string;
     screenClickIndex: number; // Correspondente ao botão
-    setScreenIndex: (x: number) => void; // Altera o estado do índice da tela atual
 }
 
 function NavBarScreenOption(props: NavBarScreenOptionProps) {
+    const context = useContext(AppContext);
+
     return (
         <NavBarOption
             iconPath={props.iconPath}
-            onClick={() => props.setScreenIndex(props.screenClickIndex)}
+            onClick={() => context?.setScreenIndex(props.screenClickIndex)}
+            selected={context?.screenIndex == props.screenClickIndex}
         >
             {props.children}
         </NavBarOption>

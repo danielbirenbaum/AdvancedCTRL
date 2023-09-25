@@ -138,13 +138,16 @@ button {
 .navbar-option img {
     width: 27px;
     height: 27px;
-    opacity: 0.7;
+    opacity: 0.6;
 
     margin-right: 25px;
     object-fit: contain;
 }
+.navbar-option.selected {
+    font-weight: bold;
+}
 .navbar-option.selected img {
-    opacity: 0.9;
+    opacity: 1;
 }
 .navbar-option:last-of-type {
     position: absolute;

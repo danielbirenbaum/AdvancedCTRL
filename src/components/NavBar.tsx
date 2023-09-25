@@ -2,11 +2,7 @@ import NavBarOption from "./NavBarOption";
 import NavBarScreenOption from "./NavBarScreenOption";
 import { screens } from "../helpers/ScreenInfo";
 
-interface NavBarProps {
-    setScreenIndex: (x: number) => void; // Altera o estado do índice da tela atual
-}
-
-function NavBar(props: NavBarProps) {
+function NavBar() {
     return (
         <div id="navbar">
             <div>
@@ -30,7 +26,6 @@ function NavBar(props: NavBarProps) {
                                 key={idx}
                                 iconPath={s.iconPath}
                                 screenClickIndex={idx}
-                                setScreenIndex={props.setScreenIndex}
                             >
                                 {s.title}
                             </NavBarScreenOption>
