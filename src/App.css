@@ -59,7 +59,6 @@ button {
     src: url("assets/fonts/Poppins-Bold.ttf");
 }
 * {
-    user-drag: none;
     user-select: none;
     -webkit-user-drag: none;
     -moz-user-select: none;
