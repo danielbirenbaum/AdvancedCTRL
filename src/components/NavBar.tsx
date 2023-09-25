@@ -1,6 +1,6 @@
-import { screens } from "../App";
 import NavBarOption from "./NavBarOption";
 import NavBarScreenOption from "./NavBarScreenOption";
+import { screens } from "./screens/ScreenInfo";
 
 interface NavBarProps {
     setScreen: (x: number) => void; // Altera o estado da tela atual
@@ -27,11 +27,12 @@ function NavBar(props: NavBarProps) {
                     {screens.map((s, idx) => {
                         return (
                             <NavBarScreenOption
-                                iconPath={"assets/icons/" + s[0]}
+                                key={idx}
+                                iconPath={s.iconPath}
                                 screenIndex={idx}
                                 setScreen={props.setScreen}
                             >
-                                {s[1].toString()}
+                                {s.title}
                             </NavBarScreenOption>
                         );
                     })}

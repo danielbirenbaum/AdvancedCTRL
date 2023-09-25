@@ -1,19 +1,7 @@
-import React, { useState } from "react";
 import "./App.css";
-
+import React, { useState } from "react";
 import NavBar from "./components/NavBar";
-import HomepageScreen from "./components/screens/HomepageScreen";
-
-// TODO: Alterar componentes de HomepageScreen para as suas respectivas telas
-export const screens = [
-    ["home.svg", "Página Inicial", HomepageScreen],
-    ["settings.svg", "Configurações", HomepageScreen],
-    ["cpu.svg", "CPU", HomepageScreen],
-    ["gpu.svg", "GPU", HomepageScreen],
-    ["ram.svg", "RAM", HomepageScreen],
-    ["hdd.svg", "Disco Rígido", HomepageScreen],
-    ["fan.svg", "Ventoinha", HomepageScreen],
-];
+import { screens } from "./components/screens/ScreenInfo";
 
 function App() {
     const [screen, setScreen] = useState(0);
@@ -24,8 +12,8 @@ function App() {
             <NavBar setScreen={setScreen}></NavBar>
 
             <div id="screen">
-                <h1>{screens[screen][1].toString()}</h1>
-                {React.createElement(screens[screen][2], {})}
+                <h1>{screens[screen].title}</h1>
+                {React.createElement(screens[screen].component, {})}
             </div>
         </>
     );
