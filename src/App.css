@@ -33,6 +33,11 @@ button {
 }
 
 /* Typography */
+.subtitle {
+    margin-top: -25px;
+    margin-bottom: 30px;
+    opacity: .5;
+}
 @font-face {
     font-family: "Poppins";
     font-weight: 300;

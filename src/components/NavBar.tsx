@@ -24,10 +24,10 @@ function NavBar() {
                         return (
                             <NavBarScreenOption
                                 key={idx}
-                                iconPath={s.iconPath}
+                                iconPath={s.navBarIcon}
                                 screenClickIndex={idx}
                             >
-                                {s.title}
+                                {s.navBarTitle}
                             </NavBarScreenOption>
                         );
                     })}
