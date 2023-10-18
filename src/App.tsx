@@ -6,7 +6,6 @@ import { AppContext } from "./helpers/Context";
 
 function App() {
     const [screenIndex, setScreenIndex] = useState(0);
-
     return (
         <AppContext.Provider value={{ screenIndex, setScreenIndex }}>
             <div id="move-bar"></div>

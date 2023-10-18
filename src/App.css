@@ -2,8 +2,8 @@
 :root {
     --dark: #001219;
     --medium: #013541;
-    --light: #2c7688;
-    --text: #f2e3d5;
+    --accent: #2c7688;
+    --light: #f2e2d4;
 
     --font: "Poppins", "Segoe UI", sans-serif;
     --font-size: 1.2rem;
@@ -15,7 +15,7 @@ body {
     margin: 0;
     font-size: var(--font-size);
 
-    color: var(--text);
+    color: var(--light);
     font-family: var(--font);
 
     background-color: var(--dark);
@@ -27,7 +27,7 @@ body {
     margin: 50px 70px 50px calc(var(--navbar-width) + 70px);
 }
 button {
-    color: var(--text);
+    color: var(--light);
     font-family: var(--font);
     font-size: var(--font-size);
 }
@@ -156,6 +156,31 @@ button {
 .navbar-option:last-of-type {
     position: absolute;
     bottom: 20px;
+}
+
+/* Homepage */
+#homepage-grid {
+    display: grid;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-rows: [row1] 50% [row2] 50%;
+    grid-gap: 20px;
+    margin: 50px 30px;
+}
+.homepage-chart {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, .3);
+    transition: .5s ease-in background-color;
+}
+.homepage-chart:hover {
+    background-color: rgba(255, 255, 255, .2);
+}
+.homepage-chart canvas {
+    height: 180px !important;
+}
+.homepage-chart-caption {
+    padding: 10px 30px;
 }
 
 /* Others */

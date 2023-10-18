@@ -1,6 +1,8 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 import path from "node:path";
 
+const si = require('systeminformation');
+
 // The built directory structure
 //
 // ├─┬─┬ dist
@@ -69,5 +71,62 @@ app.on("activate", () => {
     createWindow();
   }
 });
+
+// System information interprocess communication
+// These functions are related to getting the constant data from cpu, like: name, brand, model, etc...
+
+
+// Constant functions (only called once)
+async function getCpuConst() {
+    try { return await si.cpu(); }
+    catch (error) { console.log(error); }
+}
+async function getGpuConst() {
+    try { return await si.graphics(); }
+    catch (error) { console.log(error); }
+}
+async function getRamConst() {
+    try { return await si.mem(); }
+    catch (error) { console.log(error); }
+}
+async function getDiskConst() {
+    try { return await si.diskLayout(); }
+    catch (error) { console.log(error); }
+}
+
+// Dynamic functions (called once every frame)
+async function getCpuDynamic() {
+    try {
+        return {
+            usage: await si.currentLoad().currentLoad,
+            temperature: await si.cpuTemperature().main,
+            speed: await si.cpuCurrentSpeed().avg
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// ipcMain Constant events
+ipcMain.on("get-cpu-const", (event) => {
+    event.sender.send("cpu-const-data", getCpuConst());
+})
+ipcMain.on("get-gpu-const", (event) => {
+    event.sender.send("gpu-const-data", getGpuConst());
+})
+ipcMain.on("get-ram-const", (event) => {
+    event.sender.send("ram-const-data", getRamConst());
+})
+ipcMain.on("get-disk-const", (event) => {
+    event.sender.send("disk-const-data", getDiskConst());
+})
+
+/* Forma alternativa de realizar a comunicação entre processos
+  ipcMain.handle("get-cpu-constant", async, (_, data) => {
+    const cpuData = await si.cpu();
+    return cpuData;
+  })
+
+*/ 
 
 app.whenReady().then(createWindow);
