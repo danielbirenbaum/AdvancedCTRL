@@ -76,6 +76,17 @@ app.on("activate", () => {
 });
 
 // SYSTEM INFORMATION
+
+// Constant information
+ipcMain.on("get-cpu-info", async (event) => {
+	try {
+		event.sender.send("cpu-info", await si.cpu());
+	} catch (e) {
+		console.log(e);
+	}
+});
+
+// Dynamic information
 ipcMain.on("get-cpu-usage", async (event) => {
 	try {
 		event.sender.send("cpu-usage", (await si.currentLoad()).currentLoad);
@@ -84,10 +95,9 @@ ipcMain.on("get-cpu-usage", async (event) => {
 	}
 });
 
-// TODO: Alterar a biblioteca para pegar corretamente o uso da cpu
 ipcMain.on("get-gpu-usage", async (event) => {
 	try {
-		event.sender.send("gpu-usage", await si.graphics());
+		event.sender.send("gpu-usage", await si.graphics()); // TODO: Alterar
 	} catch (e) {
 		console.log(e);
 	}
