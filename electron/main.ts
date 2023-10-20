@@ -76,13 +76,6 @@ app.on("activate", () => {
 });
 
 // SYSTEM INFORMATION
-ipcMain.on("get-cpu-info", async (event) => {
-	try {
-		event.sender.send("cpu-info", await si.cpu());
-	} catch (e) {
-		console.log(e);
-	}
-});
 ipcMain.on("get-cpu-usage", async (event) => {
 	try {
 		event.sender.send("cpu-usage", (await si.currentLoad()).currentLoad);
@@ -100,9 +93,26 @@ ipcMain.on("get-gpu-usage", async (event) => {
 	}
 });
 
+ipcMain.on("get-ram-info", async (event) => {
+	try {
+		event.sender.send("ram-info", await si.mem());
+	} catch (e) {
+		console.log(e);
+	}
+});
+
 ipcMain.on("get-ram-usage", async (event) => {
 	try {
-		event.sender.send("ram-usage", await si.mem());
+		event.sender.send("ram-usage", await si.mem().used);
+	} catch (e) {
+		console.log(e);
+	}
+});
+
+ipcMain.on("get-ram-usage-percentage", async (event) => {
+	try {
+		let mem = await si.mem();
+		event.sender.send("ram-usage-percentage", (mem.used * 100) / mem.total);
 	} catch (e) {
 		console.log(e);
 	}

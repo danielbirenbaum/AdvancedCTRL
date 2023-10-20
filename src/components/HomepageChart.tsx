@@ -9,7 +9,7 @@ interface HomepageChartProps {
 
 // Source: https://medium.com/@jmmccota/plotly-react-and-dynamic-data-d40c7292dbfb
 export default class HomepageChart extends React.Component<HomepageChartProps> {
-	maxPoints = 100;
+	maxPoints = 50;
 
 	state = {
 		line: {
@@ -28,12 +28,12 @@ export default class HomepageChart extends React.Component<HomepageChartProps> {
 				t: 0,
 			},
 			yaxis: {
-				showgrid: true,
+				showgrid: false,
 				fixedrange: true,
 				range: [0, 100],
 			},
 			xaxis: {
-				showgrid: true,
+				showgrid: false,
 				fixedrange: true,
 			},
 			datarevision: 0,
@@ -49,7 +49,7 @@ export default class HomepageChart extends React.Component<HomepageChartProps> {
 		const { line, layout } = this.state;
 
 		window.ipcRenderer.send(this.props.ipcEvent);
-		window.ipcRenderer.on(this.props.ipcChannel, (event, arg) => {
+		window.ipcRenderer.on(this.props.ipcChannel, (_, arg) => {
 			line.y.push(arg);
 		});
 

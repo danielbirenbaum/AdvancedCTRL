@@ -9,19 +9,9 @@ function HomepageScreen() {
 				ipcChannel="cpu-usage"
 			></HomepageChart>
 			<HomepageChart
-				title="CPU"
-				ipcEvent="get-cpu-usage"
-				ipcChannel="cpu-usage"
-			></HomepageChart>
-			<HomepageChart
 				title="RAM"
-				ipcEvent="get-ram-usage"
-				ipcChannel="ram-usage"
-			></HomepageChart>
-			<HomepageChart
-				title="CPU"
-				ipcEvent="get-cpu-usage"
-				ipcChannel="cpu-usage"
+				ipcEvent="get-ram-usage-percentage"
+				ipcChannel="ram-usage-percentage"
 			></HomepageChart>
 		</div>
 	);
