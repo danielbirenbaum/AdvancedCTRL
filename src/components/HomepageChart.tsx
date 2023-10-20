@@ -1,13 +1,15 @@
 import Plot from "react-plotly.js";
-import React, { useState } from "react";
+import React from "react";
 
 interface HomepageChartProps {
-	title: String;
+	title: string;
+	ipcEvent: string;
+	ipcChannel: string;
 }
 
 // Source: https://medium.com/@jmmccota/plotly-react-and-dynamic-data-d40c7292dbfb
 export default class HomepageChart extends React.Component<HomepageChartProps> {
-	maxPoints = 20;
+	maxPoints = 100;
 
 	state = {
 		line: {
@@ -26,11 +28,12 @@ export default class HomepageChart extends React.Component<HomepageChartProps> {
 				t: 0,
 			},
 			yaxis: {
-				showgrid: false,
+				showgrid: true,
 				fixedrange: true,
+				range: [0, 100],
 			},
 			xaxis: {
-				showgrid: false,
+				showgrid: true,
 				fixedrange: true,
 			},
 			datarevision: 0,
@@ -38,13 +41,17 @@ export default class HomepageChart extends React.Component<HomepageChartProps> {
 		revision: 0,
 	};
 
-	componentDidMount() {
+	componentDidMount = async () => {
 		setInterval(this.updateGraphic, 1000);
-	}
+	};
 
-	updateGraphic = () => {
+	updateGraphic = async () => {
 		const { line, layout } = this.state;
-		line.y.push(Math.round(Math.random() * 5));
+
+		window.ipcRenderer.send(this.props.ipcEvent);
+		window.ipcRenderer.on(this.props.ipcChannel, (event, arg) => {
+			line.y.push(arg);
+		});
 
 		if (line.x.length >= this.maxPoints) {
 			line.y.shift();
