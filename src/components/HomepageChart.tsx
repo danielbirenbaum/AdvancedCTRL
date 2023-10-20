@@ -1,56 +1,88 @@
-import { 
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend, 
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+import Plot from "react-plotly.js";
+import React, { useState } from "react";
 
 interface HomepageChartProps {
-  title: String,
+	title: String;
 }
 
-const HomepageChart = (props: HomepageChartProps) => {
-  const data = [1, 2, 3, 5, 3, 2, 5, 1, 3, 7];
-  
-  return (
-    <div className="homepage-chart">
-      <div className="homepage-chart-caption"><b>{ props.title }</b></div>
-      <Line data={{
-          labels: data.map((x, idx) => idx),
-          datasets: [
-          {
-            label: 'Dataset 1',
-            data: data,
-            borderColor: '#f2e2d4',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-          },
-          ]
-      }} options={{
-        scales: {
-          y: { ticks: { display: false } },
-          x: { ticks: { display: false } }
-        },
-        plugins: {
-          legend: { display: false },
-        }
-      }}/>
-    </div>
-  );
-}
+// Source: https://medium.com/@jmmccota/plotly-react-and-dynamic-data-d40c7292dbfb
+export default class HomepageChart extends React.Component<HomepageChartProps> {
+	maxPoints = 20;
 
-export default HomepageChart;
+	state = {
+		line: {
+			x: [0],
+			y: [0],
+		},
+		layout: {
+			width: 390,
+			height: 190,
+			paper_bgcolor: "rgba(0, 0, 0, 0)",
+			plot_bgcolor: "rgba(0, 0, 0, 0)",
+			margin: {
+				l: 0,
+				r: 0,
+				b: 0,
+				t: 0,
+			},
+			yaxis: {
+				showgrid: false,
+				fixedrange: true,
+			},
+			xaxis: {
+				showgrid: false,
+				fixedrange: true,
+			},
+			datarevision: 0,
+		},
+		revision: 0,
+	};
+
+	componentDidMount() {
+		setInterval(this.updateGraphic, 1000);
+	}
+
+	updateGraphic = () => {
+		const { line, layout } = this.state;
+		line.y.push(Math.round(Math.random() * 5));
+
+		if (line.x.length >= this.maxPoints) {
+			line.y.shift();
+		} else {
+			line.x.push(line.x.length + 1);
+		}
+
+		this.setState({ revision: this.state.revision + 1 });
+		layout.datarevision = this.state.revision + 1;
+	};
+
+	render() {
+		return (
+			<div className="homepage-chart">
+				<div className="homepage-chart-caption">
+					<b>{this.props.title}</b>
+				</div>
+				<div className="homepage-chart-plot">
+					<Plot
+						data={[
+							{
+								...this.state.line,
+								type: "scatter",
+								mode: "lines",
+								marker: {
+									color: "white",
+								},
+							},
+						]}
+						layout={this.state.layout}
+						revision={this.state.revision}
+						config={{
+							displayModeBar: false,
+							scrollZoom: false,
+						}}
+					/>
+				</div>
+			</div>
+		);
+	}
+}
