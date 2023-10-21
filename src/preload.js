@@ -7,6 +7,8 @@ contextBridge.exposeInMainWorld("app", {
 	appQuit: () => ipcRenderer.send("app-quit"),
 
 	cpuUsage: () => ipcRenderer.invoke("cpu/usage"),
+	cpuSpeed: () => ipcRenderer.invoke("cpu/speed"),
+	cpuProcesses: () => ipcRenderer.invoke("cpu/processes"),
 	cpuInfo: () => ipcRenderer.invoke("cpu/info"),
 
 	gpuUsage: () => ipcRenderer.invoke("gpu/usage"),

@@ -30,6 +30,11 @@ body {
 a {
 	color: var(--light);
 }
+li {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
 
 /* Typography */
 h1,
@@ -244,13 +249,68 @@ p {
 .monitor-layout {
 	margin: 30px 20px 0 20px;
 }
-.monitor-chart {
+.monitor-chart-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 	padding: 20px;
-	box-sizing: border-box;
 
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 5px;
 	background-color: rgba(255, 255, 255, 0.05);
+}
+.monitor-grid {
+	width: 50%;
+	grid-gap: 10px;
+	box-sizing: border-box;
+
+	display: grid;
+	grid-template-rows: [row1] 50% [row2] 50%;
+	grid-template-columns: [col1] 50% [col2] 50%;
+}
+.monitor-bottom-row {
+	display: flex;
+	margin-top: 10px;
+}
+.monitor-details {
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.05);
+
+	width: 100%;
+	margin-left: 20px;
+
+	padding: 10px 0;
+
+	display: flex;
+	align-items: center;
+}
+
+/* Info Box */
+.info-box {
+	border-radius: 5px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	background-color: rgba(255, 255, 255, 0.05);
+
+	padding: 20px;
+	box-sizing: border-box;
+
+	display: flex;
+	flex-direction: column;
+}
+.info-box-title {
+	font-size: 0.9em;
+	opacity: 0.7;
+}
+.info-box-data {
+	font-weight: bold;
+	font-size: 1.3em;
+}
+.info-box-unit {
+	opacity: 0.7;
+	font-weight: 300;
+	font-size: 1.1em;
 }
 
 /* Others */

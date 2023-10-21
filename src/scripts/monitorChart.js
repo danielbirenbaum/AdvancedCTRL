@@ -1,14 +1,3 @@
-const interval = 500; // in ms
-const maxPoints = 120;
-
-const dataInfoFunc = {
-	// Functions for bar data
-	"cpu-usage": window.app.cpuUsage,
-	"gpu-usage": window.app.gpuUsage,
-	"ram-usage": window.app.ramUsage,
-	"disk-usage": window.app.diskUsage,
-};
-
 // Get all charts
 const charts = document.getElementsByClassName("monitor-chart");
 
@@ -28,12 +17,13 @@ const data = [
 ];
 
 const layout = {
+	width: 650,
 	height: 190,
 	paper_bgcolor: "rgba(0, 0, 0, 0)",
 	plot_bgcolor: "rgba(0, 0, 0, 0)",
 	margin: {
 		l: 0,
-		r: 40,
+		r: 0,
 		b: 0,
 		t: 0,
 	},

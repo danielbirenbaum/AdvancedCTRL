@@ -59,11 +59,69 @@
 				<div class="monitor-chart-container">
 					<div class="monitor-chart" id="cpu-usage"></div>
 				</div>
+				<div class="monitor-bottom-row">
+					<div class="monitor-grid">
+						<div class="info-box" data-info="cpu-usage">
+							<span class="info-box-title">Uso</span>
+							<div>
+								<span class="info-box-data">0</span>
+								<span class="info-box-unit">%</span>
+							</div>
+						</div>
+						<div class="info-box" data-info="cpu-speed">
+							<span class="info-box-title">Velocidade</span>
+
+							<div>
+								<span class="info-box-data">0</span>
+								<span class="info-box-unit">GHz</span>
+							</div>
+						</div>
+						<div class="info-box" data-info="cpu-processes">
+							<span class="info-box-title">Processos</span>
+							<span class="info-box-data">0</span>
+						</div>
+					</div>
+					<div class="monitor-details">
+						<ul>
+							<li>
+								Marca:
+								<span
+									class="replace-text"
+									data-info="cpu-manufacturer"
+								></span>
+							</li>
+							<li>
+								Modelo:
+								<span
+									class="replace-text"
+									data-info="cpu-brand"
+								></span>
+							</li>
+							<li>
+								Velocidade base:
+								<span
+									class="replace-text"
+									data-info="cpu-base-speed"
+								></span>
+							</li>
+							<li>
+								Núcleos:
+								<span
+									class="replace-text"
+									data-info="cpu-cores"
+								></span>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 
+		<script src="scripts/constants.js"></script>
 		<script src="scripts/quitButton.js"></script>
 		<script src="scripts/plotly.js"></script>
 		<script src="scripts/monitorChart.js"></script>
+		<script src="scripts/infoBox.js"></script>
+		<script src="scripts/replaceText.js"></script>
 	</body>
 </html>

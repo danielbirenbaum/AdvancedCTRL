@@ -77,6 +77,16 @@ ipcMain.handle("cpu/usage", async (_) => {
 	return (await si.currentLoad()).currentLoad;
 });
 
+// Get CPU speed (in GHz)
+ipcMain.handle("cpu/speed", async (_) => {
+	return (await si.cpuCurrentSpeed()).avg;
+});
+
+// Get number of processes
+ipcMain.handle("cpu/processes", async (_) => {
+	return (await si.processes()).all;
+});
+
 // Get CPU information (model, cores, etc.)
 ipcMain.handle("cpu/info", async (_) => {
 	return await si.cpu();
