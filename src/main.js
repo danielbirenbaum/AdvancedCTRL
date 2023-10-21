@@ -2,7 +2,9 @@
 const { app, shell, BrowserWindow, ipcMain, webContents } = require("electron");
 const path = require("path");
 const { electronApp, optimizer } = require("@electron-toolkit/utils");
+
 const si = require("systeminformation");
+const { PowerShell } = require("node-powershell");
 
 function createWindow() {
 	// Create the browser window.
@@ -78,6 +80,20 @@ ipcMain.handle("cpu/usage", async (_) => {
 // Get CPU information (model, cores, etc.)
 ipcMain.handle("cpu/info", async (_) => {
 	return await si.cpu();
+});
+
+// Get GPU usage (in %)
+ipcMain.handle("gpu/usage", async (_) => {
+	const ps = new PowerShell({
+		executionPolicy: "Bypass",
+		noProfile: true,
+	});
+
+	const command = PowerShell.command`Write-Output (((Get-Counter "\\GPU Engine(*engtype_3D)\\Utilization Percentage").CounterSamples | where CookedValue).CookedValue | measure -sum).sum`;
+	const output = await ps.invoke(command);
+
+	ps.dispose();
+	return parseFloat(output.raw);
 });
 
 // Get GPU information (model, vendor, etc.)

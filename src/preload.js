@@ -9,6 +9,7 @@ contextBridge.exposeInMainWorld("app", {
 	cpuUsage: () => ipcRenderer.invoke("cpu/usage"),
 	cpuInfo: () => ipcRenderer.invoke("cpu/info"),
 
+	gpuUsage: () => ipcRenderer.invoke("gpu/usage"),
 	gpuInfo: () => ipcRenderer.invoke("gpu/info"),
 
 	ramUsage: () => ipcRenderer.invoke("ram/usage"),
