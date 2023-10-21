@@ -18,8 +18,11 @@ const data = [
 		y: [],
 		type: "line",
 		mode: "lines",
+		fill: "tozeroy",
+		type: "scatter",
+		fillcolor: "#2c768857",
 		marker: {
-			color: "white",
+			color: "#45afc9",
 		},
 	},
 ];
