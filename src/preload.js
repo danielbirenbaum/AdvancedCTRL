@@ -14,5 +14,6 @@ contextBridge.exposeInMainWorld("app", {
 	ramUsage: () => ipcRenderer.invoke("ram/usage"),
 	ramInfo: () => ipcRenderer.invoke("ram/info"),
 
+	diskUsage: () => ipcRenderer.invoke("disk/usage"),
 	diskInfo: () => ipcRenderer.invoke("disk/info"),
 });

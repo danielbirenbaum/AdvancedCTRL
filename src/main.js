@@ -96,6 +96,11 @@ ipcMain.handle("ram/info", async (_) => {
 	return (await si.memLayout())[0];
 });
 
+// Get disk usage
+ipcMain.handle("disk/usage", async (_) => {
+	return (await si.fsSize())[0].use;
+});
+
 // Get disk information (type, name, etc.)
 ipcMain.handle("disk/info", async (_) => {
 	return (await si.diskLayout())[0];

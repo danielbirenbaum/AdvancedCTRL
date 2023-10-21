@@ -5,7 +5,7 @@ const dataInfoFunc = {
 	"cpu-usage": window.app.cpuUsage,
 	"gpu-usage": window.app.cpuUsage,
 	"ram-usage": window.app.ramUsage,
-	"disk-usage": window.app.cpuUsage,
+	"disk-usage": window.app.diskUsage,
 };
 const dataInfoTitleFunc = {
 	// Functions for bar title
