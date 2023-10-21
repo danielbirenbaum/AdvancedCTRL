@@ -84,3 +84,14 @@ ipcMain.handle("cpu/speed", async (_) => {
 ipcMain.handle("cpu/info", async (_) => {
 	return await si.cpu();
 });
+
+// Get RAM usage (in %)
+ipcMain.handle("ram/usage", async (_) => {
+	const mem = await si.mem();
+	return (mem.used * 100) / mem.total;
+});
+
+// Get RAM information (size, type, etc.)
+ipcMain.handle("ram/info", async (_) => {
+	return await si.memLayout();
+});

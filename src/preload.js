@@ -6,8 +6,10 @@ const { electronAPI } = require("@electron-toolkit/preload");
 contextBridge.exposeInMainWorld("app", {
 	appQuit: () => ipcRenderer.send("app-quit"),
 
-	// SYSTEM INFORMATION
 	cpuUsage: () => ipcRenderer.invoke("cpu/usage"),
 	cpuSpeed: () => ipcRenderer.invoke("cpu/speed"),
 	cpuInfo: () => ipcRenderer.invoke("cpu/info"),
+
+	ramUsage: () => ipcRenderer.invoke("ram/usage"),
+	ramInfo: () => ipcRenderer.invoke("ram/info"),
 });

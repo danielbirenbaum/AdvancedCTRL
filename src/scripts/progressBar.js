@@ -1,36 +1,37 @@
-// Functions to get data for each data-info bar attribute
+const interval = 1000; // in ms
+
 const dataInfoFunc = {
+	// Functions for bar data
 	"cpu-usage": window.app.cpuUsage,
 	"gpu-usage": window.app.cpuUsage,
-	"ram-usage": window.app.cpuUsage,
+	"ram-usage": window.app.ramUsage,
 	"disk-usage": window.app.cpuUsage,
 };
-
-// Functions to get title for each data-info bar attribute
 const dataInfoTitleFunc = {
+	// Functions for bar title
 	"cpu-usage": async () => (await window.app.cpuInfo()).brand,
 	"gpu-usage": async () => (await window.app.cpuInfo()).brand,
-	"ram-usage": async () => (await window.app.cpuInfo()).brand,
+	"ram-usage": async () => (await window.app.ramInfo())[0].type,
 	"disk-usage": async () => (await window.app.cpuInfo()).brand,
 };
 
-// All progress bars in page
+// Get all bars
 const bars = document.getElementsByClassName("homepage-bar");
 
-// Main
-async function main() {
-	// Set bar titles
-	for (let i = 0; i < bars.length; i++) {
+// Set bar titles
+for (let i = 0; i < bars.length; i++) {
+	(async () => {
 		const val =
 			await dataInfoTitleFunc[bars[i].getAttribute("data-info")]();
-		console.log(val);
 		bars[i].getElementsByClassName("homepage-bar-title")[0].innerHTML = val;
-	}
+	})();
+}
 
-	// Update bars
-	setInterval(async () => {
-		for (let i = 0; i < bars.length; i++) {
-			let val =
+// Update bar titles
+setInterval(() => {
+	for (let i = 0; i < bars.length; i++) {
+		(async () => {
+			const val =
 				Math.round(
 					(await dataInfoFunc[bars[i].getAttribute("data-info")]()) *
 						100,
@@ -42,8 +43,6 @@ async function main() {
 				val;
 			bars[i].getElementsByClassName("homepage-bar-data")[0].innerHTML =
 				val;
-		}
-	}, 1000);
-}
-
-main();
+		})();
+	}
+}, interval);
