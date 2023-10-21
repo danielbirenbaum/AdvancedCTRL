@@ -2,7 +2,7 @@
 const { app, shell, BrowserWindow, ipcMain, webContents } = require("electron");
 const path = require("path");
 const { electronApp, optimizer } = require("@electron-toolkit/utils");
-const si = require('systeminformation');
+const si = require("systeminformation");
 
 function createWindow() {
 	// Create the browser window.
@@ -68,7 +68,19 @@ ipcMain.on("app-quit", function () {
 	app.quit();
 });
 
-ipcMain.handle("get-cpu-usage", async (_, data) => {
-	const usage = await si.currentLoad();
-	return usage;
-})
+// SYSTEM INFORMATION
+
+// Get CPU usage (in %)
+ipcMain.handle("cpu/usage", async (_) => {
+	return (await si.currentLoad()).currentLoad;
+});
+
+// Get CPU current speed (in GHz)
+ipcMain.handle("cpu/speed", async (_) => {
+	return (await si.cpuCurrentSpeed()).avg;
+});
+
+// Get CPU information (model, cores, etc.)
+ipcMain.handle("cpu/info", async (_) => {
+	return await si.cpu();
+});

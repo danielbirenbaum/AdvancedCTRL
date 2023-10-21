@@ -3,7 +3,11 @@
 const { contextBridge, ipcRenderer } = require("electron");
 const { electronAPI } = require("@electron-toolkit/preload");
 
-contextBridge.exposeInMainWorld("electron", {
+contextBridge.exposeInMainWorld("app", {
 	appQuit: () => ipcRenderer.send("app-quit"),
-	cpuUsage: (data) => ipcRenderer.invoke("get-cpu-usage", data)
+
+	// SYSTEM INFORMATION
+	cpuUsage: () => ipcRenderer.invoke("cpu/usage"),
+	cpuSpeed: () => ipcRenderer.invoke("cpu/speed"),
+	cpuInfo: () => ipcRenderer.invoke("cpu/info"),
 });
