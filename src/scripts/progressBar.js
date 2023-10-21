@@ -1,4 +1,4 @@
-const interval = 1000; // in ms
+const interval = 3000; // in ms
 
 const dataInfoFunc = {
 	// Functions for bar data
@@ -11,7 +11,7 @@ const dataInfoTitleFunc = {
 	// Functions for bar title
 	"cpu-usage": async () => (await window.app.cpuInfo()).brand,
 	"gpu-usage": async () => (await window.app.gpuInfo()).model,
-	"ram-usage": async () => (await window.app.ramInfo()).type,
+	"ram-usage": async () => Math.round((await window.app.ramInfo()).size * (1.25*(10**(-10)))) + " GB",
 	"disk-usage": async () => (await window.app.diskInfo()).name,
 };
 
