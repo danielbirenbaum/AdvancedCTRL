@@ -11,7 +11,8 @@ const dataInfoTitleFunc = {
 	// Functions for bar title
 	"cpu-usage": async () => (await window.app.cpuInfo()).brand,
 	"gpu-usage": async () => (await window.app.gpuInfo()).model,
-	"ram-usage": async () => Math.round((await window.app.ramInfo()).size * (1.25*(10**(-10)))) + " GB",
+	"ram-usage": async () =>
+		Math.floor((await window.app.ramInfo()).size / 1e9) + "GB",
 	"disk-usage": async () => (await window.app.diskInfo()).name,
 };
 
