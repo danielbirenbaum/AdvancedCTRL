@@ -3,7 +3,7 @@ const interval = 1000; // in ms
 const dataInfoFunc = {
 	// Functions for bar data
 	"cpu-usage": window.app.cpuUsage,
-	"gpu-usage": window.app.cpuUsage,
+	"gpu-usage": () => 0,
 	"ram-usage": window.app.ramUsage,
 	"disk-usage": window.app.diskUsage,
 };
