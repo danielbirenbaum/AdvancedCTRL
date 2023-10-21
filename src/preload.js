@@ -5,4 +5,5 @@ const { electronAPI } = require("@electron-toolkit/preload");
 
 contextBridge.exposeInMainWorld("electron", {
 	appQuit: () => ipcRenderer.send("app-quit"),
+	cpuUsage: (data) => ipcRenderer.invoke("get-cpu-usage", data)
 });

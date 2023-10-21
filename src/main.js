@@ -1,7 +1,8 @@
 // Modules to control application life and create native browser window
-const { app, shell, BrowserWindow, ipcMain } = require("electron");
+const { app, shell, BrowserWindow, ipcMain, webContents } = require("electron");
 const path = require("path");
 const { electronApp, optimizer } = require("@electron-toolkit/utils");
+const si = require('systeminformation');
 
 function createWindow() {
 	// Create the browser window.
@@ -23,7 +24,7 @@ function createWindow() {
 			sandbox: false,
 		},
 	});
-
+	mainWindow.webContents.openDevTools();
 	// mainWindow.setMenu(null);
 
 	mainWindow.on("ready-to-show", () => {
@@ -66,3 +67,8 @@ app.whenReady().then(() => {
 ipcMain.on("app-quit", function () {
 	app.quit();
 });
+
+ipcMain.handle("get-cpu-usage", async (_, data) => {
+	const usage = await si.currentLoad();
+	return usage;
+})
