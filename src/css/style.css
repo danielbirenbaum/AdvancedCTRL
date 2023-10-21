@@ -201,8 +201,18 @@ p {
 	margin-bottom: 10px;
 }
 .homepage-bar-title {
+	width: 70%;
+
 	font-weight: bold;
 	margin-right: auto;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.homepage-bar-title:hover {
+	width: 100%;
+	text-overflow: inherit;
+	overflow: visible;
 }
 .homepage-bar-data {
 	opacity: 0.7;

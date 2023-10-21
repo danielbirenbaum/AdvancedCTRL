@@ -10,9 +10,9 @@ const dataInfoFunc = {
 const dataInfoTitleFunc = {
 	// Functions for bar title
 	"cpu-usage": async () => (await window.app.cpuInfo()).brand,
-	"gpu-usage": async () => (await window.app.cpuInfo()).brand,
-	"ram-usage": async () => (await window.app.ramInfo())[0].type,
-	"disk-usage": async () => (await window.app.cpuInfo()).brand,
+	"gpu-usage": async () => (await window.app.gpuInfo()).model,
+	"ram-usage": async () => (await window.app.ramInfo()).type,
+	"disk-usage": async () => (await window.app.diskInfo()).name,
 };
 
 // Get all bars

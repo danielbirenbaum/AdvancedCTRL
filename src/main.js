@@ -75,14 +75,14 @@ ipcMain.handle("cpu/usage", async (_) => {
 	return (await si.currentLoad()).currentLoad;
 });
 
-// Get CPU current speed (in GHz)
-ipcMain.handle("cpu/speed", async (_) => {
-	return (await si.cpuCurrentSpeed()).avg;
-});
-
 // Get CPU information (model, cores, etc.)
 ipcMain.handle("cpu/info", async (_) => {
 	return await si.cpu();
+});
+
+// Get GPU information (model, vendor, etc.)
+ipcMain.handle("gpu/info", async (_) => {
+	return (await si.graphics()).controllers[0];
 });
 
 // Get RAM usage (in %)
@@ -93,5 +93,10 @@ ipcMain.handle("ram/usage", async (_) => {
 
 // Get RAM information (size, type, etc.)
 ipcMain.handle("ram/info", async (_) => {
-	return await si.memLayout();
+	return (await si.memLayout())[0];
+});
+
+// Get disk information (type, name, etc.)
+ipcMain.handle("disk/info", async (_) => {
+	return (await si.diskLayout())[0];
 });

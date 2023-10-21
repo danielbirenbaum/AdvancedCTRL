@@ -7,9 +7,12 @@ contextBridge.exposeInMainWorld("app", {
 	appQuit: () => ipcRenderer.send("app-quit"),
 
 	cpuUsage: () => ipcRenderer.invoke("cpu/usage"),
-	cpuSpeed: () => ipcRenderer.invoke("cpu/speed"),
 	cpuInfo: () => ipcRenderer.invoke("cpu/info"),
+
+	gpuInfo: () => ipcRenderer.invoke("gpu/info"),
 
 	ramUsage: () => ipcRenderer.invoke("ram/usage"),
 	ramInfo: () => ipcRenderer.invoke("ram/info"),
+
+	diskInfo: () => ipcRenderer.invoke("disk/info"),
 });
