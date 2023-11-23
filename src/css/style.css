@@ -217,8 +217,6 @@ p {
 	text-overflow: ellipsis;
 }
 .homepage-bar-title:hover {
-	width: 100%;
-	text-overflow: inherit;
 	overflow: visible;
 }
 .homepage-bar-data {
@@ -261,13 +259,11 @@ p {
 	background-color: rgba(255, 255, 255, 0.05);
 }
 .monitor-grid {
-	width: 50%;
-	grid-gap: 10px;
+	width: 100%;
 	box-sizing: border-box;
 
-	display: grid;
-	grid-template-rows: [row1] 50% [row2] 50%;
-	grid-template-columns: [col1] 50% [col2] 50%;
+	display: flex;
+	flex-wrap: wrap;
 }
 .monitor-bottom-row {
 	display: flex;
@@ -279,12 +275,25 @@ p {
 	background-color: rgba(255, 255, 255, 0.05);
 
 	width: 100%;
-	margin-left: 20px;
+	margin-left: 10px;
 
+	flex-grow: 1;
 	padding: 10px 0;
 
 	display: flex;
 	align-items: center;
+}
+.monitor-details li {
+	width: 250px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.monitor-details li:hover {
+	overflow: visible;
+}
+.monitor-details .replace-text {
+	font-weight: bold;
 }
 
 /* Info Box */
@@ -292,6 +301,9 @@ p {
 	border-radius: 5px;
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	background-color: rgba(255, 255, 255, 0.05);
+
+	height: 100px;
+	flex-grow: 1;
 
 	padding: 20px;
 	box-sizing: border-box;

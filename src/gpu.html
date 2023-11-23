@@ -32,11 +32,11 @@
 					<img src="static/icons/cpu.svg" />
 					<span>CPU</span>
 				</a>
-				<a href="gpu.html" class="navbar-option">
+				<a href="gpu.html" class="navbar-option selected">
 					<img src="static/icons/gpu.svg" />
 					<span>GPU</span>
 				</a>
-				<a href="ram.html" class="navbar-option selected">
+				<a href="ram.html" class="navbar-option">
 					<img src="static/icons/ram.svg" />
 					<span>RAM</span>
 				</a>
@@ -52,16 +52,16 @@
 		</div>
 
 		<div class="content">
-			<h1>Memória RAM</h1>
-			<p class="page-subtitle">Memória de Aceso Aleatório</p>
+			<h1>GPU</h1>
+			<p class="page-subtitle">Unidade de Processamento Gráfico</p>
 
 			<div class="monitor-layout">
 				<div class="monitor-chart-container">
-					<div class="monitor-chart" id="ram-usage"></div>
+					<div class="monitor-chart" id="gpu-usage"></div>
 				</div>
 				<div class="monitor-bottom-row">
 					<div class="monitor-grid">
-						<div class="info-box" data-info="ram-usage">
+						<div class="info-box" data-info="gpu-usage">
 							<span class="info-box-title">Uso</span>
 							<div>
 								<span class="info-box-data">0</span>
@@ -72,20 +72,19 @@
 					<div class="monitor-details">
 						<ul>
 							<li>
-								Tamanho total:
+								Marca:
 								<span
 									class="replace-text"
-									data-info="ram-total"
+									data-info="gpu-vendor"
 								></span>
 							</li>
 							<li>
-								Tipo:
+								Modelo:
 								<span
 									class="replace-text"
-									data-info="ram-type"
+									data-info="gpu-model"
 								></span>
 							</li>
-							
 						</ul>
 					</div>
 				</div>

@@ -1,5 +1,5 @@
 const interval = 1000; // in ms
-const maxPoints = 120; // for charts
+const maxPoints = 50; // for charts
 
 const dataInfoFunc = {
 	// Functions for data
