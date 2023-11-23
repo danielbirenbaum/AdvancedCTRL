@@ -14,7 +14,7 @@ function createWindow() {
 		show: false,
 		resizable: false,
 		autoHideMenuBar: true,
-		// titleBarStyle: "hidden",
+		titleBarStyle: "hidden",
 
 		...(process.platform === "linux"
 			? {
@@ -26,8 +26,8 @@ function createWindow() {
 			sandbox: false,
 		},
 	});
-	mainWindow.webContents.openDevTools();
-	// mainWindow.setMenu(null);
+	// mainWindow.webContents.openDevTools();
+	mainWindow.setMenu(null);
 
 	mainWindow.on("ready-to-show", () => {
 		mainWindow.show();
