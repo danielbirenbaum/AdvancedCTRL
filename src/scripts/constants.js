@@ -8,6 +8,7 @@ const dataInfoFunc = {
 	"cpu-processes": window.app.cpuProcesses,
 	"gpu-usage": window.app.gpuUsage,
 	"ram-usage": window.app.ramUsage,
+	"disk-layout": window.app.diskLayout,
 	"disk-usage": window.app.diskUsage,
 };
 const dataInfoTitleFunc = {
