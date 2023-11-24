@@ -131,3 +131,13 @@ ipcMain.handle("disk/usage", async (_) => {
 ipcMain.handle("disk/info", async (_) => {
 	return (await si.diskLayout())[0];
 });
+
+// Get disk bytes read per second
+ipcMain.handle("disk/read", async (_) => {
+	return (await si.fsStats()).rx_sec;
+});
+
+// Get disk bytes written per second
+ipcMain.handle("disk/write", async (_) => {
+	return (await si.fsStats()).tx_sec;
+});

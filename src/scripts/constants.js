@@ -10,6 +10,8 @@ const dataInfoFunc = {
 	"ram-usage": window.app.ramUsage,
 	"disk-layout": window.app.diskLayout,
 	"disk-usage": window.app.diskUsage,
+	"disk-read": window.app.diskRead,
+	"disk-write": window.app.diskWrite,
 };
 const dataInfoTitleFunc = {
 	// Functions for bar titles
