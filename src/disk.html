@@ -36,11 +36,11 @@
 					<img src="static/icons/gpu.svg" />
 					<span>GPU</span>
 				</a>
-				<a href="ram.html" class="navbar-option selected">
+				<a href="ram.html" class="navbar-option">
 					<img src="static/icons/ram.svg" />
 					<span>RAM</span>
 				</a>
-				<a href="disk.html" class="navbar-option">
+				<a href="disk.html" class="navbar-option selected">
 					<img src="static/icons/hdd.svg" />
 					<span>Disco</span>
 				</a>
@@ -52,37 +52,63 @@
 		</div>
 
 		<div class="content">
-			<h1>Memória RAM</h1>
-			<p class="page-subtitle">Memória de Aceso Aleatório</p>
+			<h1>Armazenamento</h1>
+			<p class="page-subtitle">Disco Rígido</p>
 
 			<div class="monitor-layout">
 				<div class="monitor-chart-container">
-					<div class="monitor-chart" id="ram-usage"></div>
+					<div class="monitor-chart" id="cpu-usage"></div>
 				</div>
 				<div class="monitor-bottom-row">
 					<div class="monitor-grid">
-						<div class="info-box" data-info="ram-usage">
+						<div class="info-box" data-info="cpu-usage">
 							<span class="info-box-title">Uso</span>
 							<div>
 								<span class="info-box-data">0</span>
 								<span class="info-box-unit">%</span>
 							</div>
 						</div>
+						<div class="info-box" data-info="cpu-speed">
+							<span class="info-box-title">Velocidade</span>
+
+							<div>
+								<span class="info-box-data">0</span>
+								<span class="info-box-unit">GHz</span>
+							</div>
+						</div>
+						<div class="info-box" data-info="cpu-processes">
+							<span class="info-box-title">Processos</span>
+							<span class="info-box-data">0</span>
+						</div>
 					</div>
 					<div class="monitor-details">
 						<ul>
 							<li>
-								Tamanho total:
+								Marca:
 								<span
 									class="replace-text"
-									data-info="ram-total"
+									data-info="cpu-manufacturer"
 								></span>
 							</li>
 							<li>
-								Tipo:
+								Modelo:
 								<span
 									class="replace-text"
-									data-info="ram-type"
+									data-info="cpu-brand"
+								></span>
+							</li>
+							<li>
+								Velocidade base:
+								<span
+									class="replace-text"
+									data-info="cpu-base-speed"
+								></span>
+							</li>
+							<li>
+								Núcleos:
+								<span
+									class="replace-text"
+									data-info="cpu-cores"
 								></span>
 							</li>
 						</ul>
