@@ -11,6 +11,7 @@ function createWindow() {
 	const mainWindow = new BrowserWindow({
 		width: 1200,
 		height: 700,
+		icon: "src/static/icons/icon.ico",
 		show: false,
 		resizable: false,
 		autoHideMenuBar: true,
