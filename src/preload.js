@@ -19,6 +19,4 @@ contextBridge.exposeInMainWorld("app", {
 
 	diskUsage: () => ipcRenderer.invoke("disk/usage"),
 	diskInfo: () => ipcRenderer.invoke("disk/info"),
-	diskRead: () => ipcRenderer.invoke("disk/read"),
-	diskWrite: () => ipcRenderer.invoke("disk/write"),
 });

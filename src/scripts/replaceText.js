@@ -7,6 +7,7 @@ console.log(texts);
 	const cpuInfo = await window.app.cpuInfo();
 	const gpuInfo = await window.app.gpuInfo();
 	const ramInfo = await window.app.ramInfo();
+	const diskInfo = await window.app.diskInfo();
 
 	for (let i = 0; i < texts.length; i++) {
 		const attr = texts[i].getAttribute("data-info");
@@ -20,6 +21,10 @@ console.log(texts);
 		else if (attr == "gpu-model") text = gpuInfo.model;
 		else if (attr == "ram-total") text = Math.floor(ramInfo.size / 1e9) + "GB";
 		else if (attr == "ram-type") text = ramInfo.type;
+		else if (attr == "disk-name") text = diskInfo.name;
+		else if (attr == "disk-type") text = diskInfo.type;
+		else if (attr == "disk-size") text = diskInfo.size;
+		else if (attr == "disk-interface") text = diskInfo.interfaceType;
 
 		texts[i].innerHTML = text;
 	}

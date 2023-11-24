@@ -8,10 +8,8 @@ const dataInfoFunc = {
 	"cpu-processes": window.app.cpuProcesses,
 	"gpu-usage": window.app.gpuUsage,
 	"ram-usage": window.app.ramUsage,
-	"disk-layout": window.app.diskLayout,
+	"disk-info": window.app.diskInfo,
 	"disk-usage": window.app.diskUsage,
-	"disk-read": window.app.diskRead,
-	"disk-write": window.app.diskWrite,
 };
 const dataInfoTitleFunc = {
 	// Functions for bar titles
