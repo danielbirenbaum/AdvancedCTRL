@@ -16,11 +16,8 @@ setInterval(() => {
 		(async () => {
 			const val =
 				Math.round(
-					(await dataInfoFunc[bars[i].getAttribute("data-info")]()) *
-						100,
-				) /
-					100 +
-				"%";
+					await dataInfoFunc[bars[i].getAttribute("data-info")](),
+				) + "%";
 
 			bars[i].getElementsByClassName("homepage-bar-line")[0].style.width =
 				val;
